@@ -2,6 +2,11 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 import os, subprocess
 import platform
+import gtts
+
+def get_audio_from_text(txt,fname):
+  tts = gtts.gTTS(txt)
+  tts.save(fname)
 
 UPLOAD_FOLDER = '/content'
 from flask_ngrok import run_with_ngrok
